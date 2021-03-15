@@ -21,7 +21,7 @@
 
 So, what's the difference between ESLint and Prettier? The latter is only concerned with the files' formatting. It's not concerned at all with variable or method usage. ESLint on the other hand looks at methods and accessibility and such, and also some formatting issues. ESLint is not, however, as powerful as Prettier when it comes to formatting, so `eslint-config-prettier` comes in handy here. Basically, it turns off ESLint rules that might either be unnecessary or conflict with rules set in Prettier.
 
-1. Install `ESLint`, `eslint-webpack-plugin`, `eslint-plugin-react`, `eslint-plugin-react-hooks` and `eslint-config-prettier` (maybe eslint-plugin-jsx-a11y, eslint-plugin-import):
+1. Install `ESLint`, `eslint-webpack-plugin`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y` and `eslint-config-prettier` (maybe eslint-plugin-import):
 (maybe also babel-eslint, or after babel8, babel-eslint-parser. both allow you to lint ALL valid Babel code with ESLint.)
     ```
     npm i -D eslint eslint-webpack-plugin eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier
