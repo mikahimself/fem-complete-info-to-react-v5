@@ -21,18 +21,33 @@
 
 So, what's the difference between ESLint and Prettier? The latter is only concerned with the files' formatting. It's not concerned at all with variable or method usage. ESLint on the other hand looks at methods and accessibility and such, and also some formatting issues. ESLint is not, however, as powerful as Prettier when it comes to formatting, so `eslint-config-prettier` comes in handy here. Basically, it turns off ESLint rules that might either be unnecessary or conflict with rules set in Prettier.
 
-1. Install `ESLint`, `eslint-webpack-plugin`, `eslint-plugin-react` and `eslint-config-prettier`:
+1. Install `ESLint`, `eslint-webpack-plugin`, `eslint-plugin-react`, `eslint-plugin-react-hooks` and `eslint-config-prettier` (maybe eslint-plugin-jsx-a11y, eslint-plugin-import):
+(maybe also babel-eslint, or after babel8, babel-eslint-parser. both allow you to lint ALL valid Babel code with ESLint.)
     ```
-    npm i -D eslint eslint-webpack-plugin eslint-plugin-react eslint-config-prettier
+    npm i -D eslint eslint-webpack-plugin eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier
     ```    
 2. In the root folder of the project, create a file called `.eslintrc.json` and set its content to:
     ```js
     {
         "extends": [
             "eslint:recommended",
-            "prettier",
+            // "plugin:import/errors",
+            "plugin:react/recommended",
+            // "plugin:jsx-a11y/recommended",
+            "prettier" // prettier/react has been imported into prettier in eslint-config-prettier
         ],
-        "plugins": [],
+        "plugins": ["react", "react-hooks"],
+        // "plugins": ["react", "import", "jsx-a11y"]
+        "rules": {
+            "react/prop-types": 0, // Turn off checks for prop types
+            "no-console": 1, // Give warnings instead of errors about console.log
+            "react-hooks/rules-of-hooks": 2, // Give an error if hooks are created inside if statements
+            "react-hooks/exhaustive-deps": 1, // Check effect dependencies
+            "react/jsx-uses-vars": "error",
+            "react/jsx-uses-react": "error"
+            // See: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md 
+            // and: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+        },
         "parserOptions": {
             "ecmaVersion": 2018,
             "sourceType": "module",
@@ -44,6 +59,11 @@ So, what's the difference between ESLint and Prettier? The latter is only concer
             "es6": true,
             "browser": true,
             "node": true
+        },
+        "settings": {
+            "react": {
+                "version" : "detect" // Look into package.json to determine React version
+            }
         }
     }
     ```
