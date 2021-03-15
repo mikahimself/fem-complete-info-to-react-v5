@@ -1,13 +1,7 @@
-// Some nice array destructuring going on here
-const Pet = ({ name, animal, breed }) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, name),
-    React.createElement("h2", {}, animal),
-    React.createElement("h2", {}, breed),
-  ]);
-};
+import React from 'react'
+import Pet from './Pet';
 
-const App = () => {
+export default function App() {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Adopt Me!"),
     React.createElement(Pet, {
@@ -23,5 +17,3 @@ const App = () => {
     React.createElement(Pet, { name: "Doink", animal: "Cat", breed: "Stray" }),
   ]);
 };
-
-ReactDOM.render(React.createElement(App), document.getElementById("root"));

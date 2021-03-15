@@ -3,7 +3,13 @@
         "eslint:recommended",
         "prettier"
     ],
-    "plugins": [],
+    "plugins": ["react"],
+    "rules": {
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error"
+        // See: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md 
+        // and: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+    },
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module",
