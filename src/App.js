@@ -7,9 +7,9 @@ export default function App() {
     <div>
       <h1>Adopt me!</h1>
       <SearchParams/>
-      <Pet name="Luna" animal="Dog" breed="Havanese"></Pet>
+      {/* <Pet name="Luna" animal="Dog" breed="Havanese"></Pet>
       <Pet name="Pepper" animal="Bird" breed="Cockatiel"></Pet>
-      <Pet name="Doink" animal="Cat" breed="Stray"></Pet>
+      <Pet name="Doink" animal="Cat" breed="Stray"></Pet> */}
     </div>
   )
 };

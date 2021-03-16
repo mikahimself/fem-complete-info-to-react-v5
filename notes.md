@@ -94,9 +94,7 @@ Babel handles transpilation from `.jsx` to JavaScript.
 1. Install Babel, Babel-loader, Bable Command Line Interface and presets:
     ````
     npm install --save-dev @babel/core @babel/cli @babel/preset-react @babel/preset-env babel-loader
-    ```
-    ```
-    npm install --save @babel/polyfill
+    npm install @babel/polyfill
     ```
 1. In the root folder, create a file called `.babelrc`
     ```
@@ -125,7 +123,7 @@ At its core, `Webpack` is a packager. It can take, for example, five JavaScript 
 `Babel` takes care of transforming `jsx` into ES5 JavaScript that most browsers understand.
 
 1. Install webpack, webpack-cli and webpack-dev-server:
-    ````
+    ```
     npm i -D webpack webpack-cli webpack-dev-server
     ```
 1. In the root folder, add a file called webpack.config.js:

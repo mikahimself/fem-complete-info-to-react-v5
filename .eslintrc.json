@@ -13,6 +13,7 @@
         "no-console": 1, // Give warnings instead of errors about console.log
         "react-hooks/rules-of-hooks": 2, // Give an error if hooks are created inside if statements
         "react-hooks/exhaustive-deps": 1, // Check effect dependencies
+        "no-unused-vars": [1, {"vars": "all", "args": "after-used"}],
         "react/jsx-uses-vars": "error",
         "react/jsx-uses-react": "error"
         // See: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md 
