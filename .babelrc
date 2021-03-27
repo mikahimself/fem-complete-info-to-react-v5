@@ -8,5 +8,9 @@
             "loose": false,
             "modules": false
         }]
+    ],
+    // Handle async-awaits etc.
+    "plugins": [
+        ["@babel/transform-runtime"]
     ]
 }
