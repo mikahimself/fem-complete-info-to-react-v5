@@ -6,7 +6,8 @@
         "plugin:jsx-a11y/recommended",
         "prettier" // prettier/react has been imported into prettier in eslint-config-prettier
     ],
-    "plugins": ["react", "react-hooks", "jsx-a11y"],
+    "parser": "@babel/eslint-parser",
+    "plugins": ["react", "react-hooks", "jsx-a11y", "@babel"],
     // "plugins": ["react", "import", "jsx-a11y"]
     "rules": {
         "react/prop-types": 0, // Turn off checks for prop types

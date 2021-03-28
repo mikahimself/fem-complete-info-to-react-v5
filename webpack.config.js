@@ -21,19 +21,21 @@ module.exports = {
         chunks: true
     },
     // Lint automatically
-    plugins: [new ESLintPlugin({
+    plugins: [
+        new ESLintPlugin({
         extensions: ['js', 'jsx'],
         exclude: '/node_modules/',
     }),
         new webpack.ProvidePlugin({
             process: 'process/browser',  // @frontendmasters/pet depends on the process env variable that is no longer available in webpack5. To fix this, install process (npm -i process) and add this bit here.
-          }),
+        }),
         ],
     module: {
         rules: [
             {
                 test: /\.jsx?$/, // Transpile .js and jsx files into javascript
-                loader: 'babel-loader'
+                exclude: path.resolve(__dirname, 'node_modules'),
+                use: ["babel-loader", "eslint-loader"]
             },
             {
                 test: /\.css$/i,

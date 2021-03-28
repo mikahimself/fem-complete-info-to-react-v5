@@ -1,7 +1,7 @@
 {
     "presets": [
         "@babel/preset-react",
-        ["@babel/env", {
+        ["@babel/preset-env", {     // looks at browserslist in package.json and compiles javascript to work on those
             "targets": {
                 "browsers": "last 2 versions"
             },
@@ -11,6 +11,7 @@
     ],
     // Handle async-awaits etc.
     "plugins": [
-        ["@babel/transform-runtime"]
+        "@babel/transform-runtime",
+        "@babel/plugin-proposal-class-properties"
     ]
 }
