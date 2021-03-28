@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 // Use this pattern to make the component be the default export of the component
 export default function Pet ({ name, animal, breed, media, location, id }) {
@@ -8,7 +9,8 @@ export default function Pet ({ name, animal, breed, media, location, id }) {
   }
 
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
+      {/* When using router, make sure all links use router. Standard link will reload the page & destroy & rebuild the DOM */}
       <div className="image-container">
         <img src={hero} alt={name}/>
       </div>
@@ -17,6 +19,6 @@ export default function Pet ({ name, animal, breed, media, location, id }) {
         <h2>{`${animal} - ${breed} - ${location}`}</h2>
       </div>
 
-    </a>
+    </Link>
   )
 };

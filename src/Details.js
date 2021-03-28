@@ -2,6 +2,7 @@ import React from 'react';
 import pet from '@frontendmasters/pet';
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
+import ThemeContext from './ThemeContext';
 
 class Details extends React.Component {
     // props is data coming from the parent component
@@ -45,7 +46,18 @@ class Details extends React.Component {
                 <div>
                     <h1>{name}</h1>
                     <h2>{`${animal} ${breed} - ${location}`}</h2>
-                    <button>Adopt {name}</button>
+
+                    {/* Using contexts is somewhat harder with classes.
+                        You must use the context within a Consumer, and since the
+                        context provides both the theme and the setTheme, you need
+                        to pick the right thing from the array
+                    */}
+                    <ThemeContext.Consumer>
+                        { (themeHook) => (
+                            <button style={{ backgroundColor: themeHook[0]}}>Adopt {name}</button>
+                        )}
+
+                    </ThemeContext.Consumer>
                     <p>{description}</p>
                 </div>
             </div>
